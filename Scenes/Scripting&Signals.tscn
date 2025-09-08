@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpq1dvc84vj2x"]
+
+[ext_resource type="Script" uid="uid://bpn535jhbw84r" path="res://Scripts/line_edit_script.gd" id="1_q6gm3"]
+[ext_resource type="Script" uid="uid://cna1teadmgxpg" path="res://Scripts/3SecTim.gd" id="2_rhubf"]
+[ext_resource type="Texture2D" uid="uid://dynj27ts8re1y" path="res://Textures/icon.svg" id="3_abcmq"]
+[ext_resource type="Script" uid="uid://c7ev7ef8bhhxu" path="res://Scripts/MovingObjectExample.gd" id="4_a23ai"]
+
+[node name="Scripting&Signals" type="Node2D"]
+
+[node name="UI_Examples" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI_Examples"]
+layout_mode = 0
+offset_right = 586.0
+offset_bottom = 236.0
+theme_override_font_sizes/normal_font_size = 31
+text = "Hello! Your text is:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI_Examples"]
+layout_mode = 0
+offset_left = 276.0
+offset_right = 862.0
+offset_bottom = 58.0
+theme_override_font_sizes/normal_font_size = 31
+
+[node name="LineEdit" type="LineEdit" parent="UI_Examples" node_paths=PackedStringArray("RichTextLabelToChange")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 43.0
+offset_right = 273.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Type Here"
+script = ExtResource("1_q6gm3")
+RichTextLabelToChange = NodePath("../RichTextLabel2")
+
+[node name="Button" type="Button" parent="UI_Examples" node_paths=PackedStringArray("Three_second_timer", "TextToShow")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 220.0
+offset_right = 293.0
+offset_bottom = 280.0
+text = "Reset Timer"
+script = ExtResource("2_rhubf")
+Three_second_timer = NodePath("3 second Timer")
+TextToShow = NodePath("RichTextLabel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI_Examples/Button"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 65.0
+offset_right = 292.0
+offset_bottom = 130.0
+text = "3 second Timer has finished!"
+
+[node name="3 second Timer" type="Timer" parent="UI_Examples/Button"]
+
+[node name="TextureRect" type="TextureRect" parent="UI_Examples"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 597.0
+offset_top = 255.0
+offset_right = 725.0
+offset_bottom = 383.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_abcmq")
+script = ExtResource("4_a23ai")
+
+[connection signal="text_changed" from="UI_Examples/LineEdit" to="UI_Examples/LineEdit" method="_on_text_changed"]
+[connection signal="pressed" from="UI_Examples/Button" to="UI_Examples/Button" method="_on_pressed"]
+[connection signal="timeout" from="UI_Examples/Button/3 second Timer" to="UI_Examples/Button" method="_on__second_timer_timeout"]

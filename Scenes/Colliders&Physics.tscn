@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=4 uid="uid://c4qm0ifk5rfh4"]
+
+[ext_resource type="Texture2D" uid="uid://bl3bk1tbjpj3t" path="res://Textures/spelunky_shop.png" id="1_3lvbb"]
+[ext_resource type="Texture2D" uid="uid://dynj27ts8re1y" path="res://Textures/icon.svg" id="2_4inev"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pcd3k"]
+bounce = 0.81
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwveg"]
+size = Vector2(32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcd3k"]
+texture = ExtResource("1_3lvbb")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kwveg"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_pcd3k")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3lvbb"]
+friction = 0.0
+bounce = 0.9
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vas8n"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6kpsy"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4inev"]
+
+[node name="Colliders&physics" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Examples" type="Node2D" parent="."]
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Examples"]
+position = Vector2(167, -105)
+physics_material_override = SubResource("PhysicsMaterial_pcd3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Examples/RigidBody2D2"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_4inev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examples/RigidBody2D2"]
+shape = SubResource("RectangleShape2D_kwveg")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Examples"]
+position = Vector2(1, -1)
+tile_map_data = PackedByteArray("AAD6//v/AAABAAMAAAD6//z/AAABAAMAAAD7//3/AAABAAMAAAD7//7/AAABAAMAAAD8//7/AAABAAMAAAD8////AAABAAMAAAD8/wAAAAABAAMAAAD9/wEAAAABAAMAAAD+/wEAAAABAAMAAAD+/wIAAAABAAMAAAD//wIAAAABAAMAAAAAAAIAAAABAAMAAAABAAIAAAABAAMAAAACAAMAAAABAAMAAAADAAMAAAABAAMAAAAEAAIAAAABAAMAAAAFAAIAAAABAAMAAAAGAAIAAAABAAMAAAAGAAEAAAABAAMAAAAHAAEAAAABAAMAAAAHAAAAAAABAAMAAAAIAAAAAAABAAMAAAAIAP//AAABAAMAAAAJAP//AAABAAMAAAAJAP7/AAABAAMAAAAKAP7/AAABAAMAAAAKAP3/AAABAAMAAAAKAPz/AAABAAMAAAALAPz/AAABAAMAAAALAPv/AAABAAMAAAALAP3/AAABAAMAAAALAP7/AAABAAMAAAALAP//AAABAAMAAAALAAAAAAABAAMAAAALAAEAAAABAAMAAAALAAIAAAABAAMAAAALAAMAAAABAAMAAAALAAQAAAABAAMAAAALAAUAAAABAAMAAAAKAAUAAAABAAMAAAAJAAQAAAABAAMAAAAIAAQAAAABAAMAAAAHAAQAAAABAAMAAAAGAAQAAAABAAMAAAAGAAUAAAABAAMAAAAFAAUAAAADAAMAAAAEAAUAAAADAAMAAAADAAUAAAABAAMAAAACAAUAAAABAAMAAAABAAUAAAABAAMAAAAAAAQAAAABAAMAAAD//wQAAAADAAMAAAD+/wQAAAADAAMAAAD9/wQAAAADAAMAAAD9/wUAAAABAAMAAAD8/wUAAAABAAMAAAD7/wUAAAABAAMAAAD7/wQAAAABAAMAAAD6/wQAAAABAAMAAAD6/wMAAAABAAMAAAD6/wIAAAABAAMAAAD6/wEAAAABAAMAAAD6/wAAAAABAAMAAAD5/wAAAAABAAMAAAD5////AAABAAMAAAD5//7/AAABAAMAAAD6//7/AAABAAMAAAD6//3/AAABAAMAAAD6////AAABAAMAAAD7/wIAAAADAAMAAAD7/wMAAAABAAMAAAD8/wQAAAABAAMAAAD6/wUAAAABAAMAAAD+/wUAAAABAAMAAAD//wUAAAABAAMAAAAAAAUAAAABAAMAAAAEAAYAAAABAAMAAAAFAAYAAAABAAMAAAAGAAYAAAABAAMAAAAHAAYAAAABAAMAAAAIAAYAAAABAAMAAAAIAAUAAAABAAMAAAAJAAUAAAABAAMAAAAHAAUAAAABAAMAAAD8/wMAAAADAAMAAAD8/wIAAAADAAMAAAD8/wEAAAABAAMAAAD7/wEAAAABAAMAAAD7/wAAAAABAAMAAAD7////AAABAAMAAAD9/wIAAAABAAMAAAD9/wMAAAADAAMAAAD+/wMAAAADAAMAAAD//wMAAAABAAMAAAAAAAMAAAABAAMAAAABAAMAAAABAAMAAAABAAQAAAABAAMAAAACAAQAAAABAAMAAAADAAQAAAABAAMAAAAEAAQAAAABAAMAAAAEAAMAAAABAAMAAAAFAAMAAAABAAMAAAAFAAQAAAABAAMAAAAGAAMAAAABAAMAAAAHAAMAAAADAAMAAAAHAAIAAAABAAMAAAAIAAIAAAADAAMAAAAIAAEAAAABAAMAAAAJAAEAAAABAAMAAAAJAAAAAAABAAMAAAAKAAAAAAABAAMAAAAKAP//AAABAAMAAAAKAAEAAAABAAMAAAAKAAIAAAABAAMAAAAJAAIAAAADAAMAAAAJAAMAAAABAAMAAAAIAAMAAAADAAMAAAAKAAMAAAABAAMAAAAKAAQAAAABAAMAAAD5/wIAAAABAAMAAAD5/wEAAAABAAMAAAD5/wMAAAABAAMAAAD5/wQAAAABAAMAAAD5/wUAAAABAAMAAAD5/wYAAAABAAMAAAD6/wYAAAABAAMAAAD7/wYAAAABAAMAAAD8/wYAAAABAAMAAAD9/wYAAAABAAMAAAD+/wYAAAABAAMAAAD//wYAAAABAAMAAAAAAAYAAAABAAMAAAABAAYAAAABAAMAAAACAAYAAAABAAMAAAADAAYAAAABAAMAAAAKAAYAAAABAAMAAAAJAAYAAAABAAMAAAALAAYAAAABAAMAAAD5//3/AAABAAMAAAD5//z/AAABAAMAAAD5//v/AAABAAMAAAD5//r/AAABAAMAAAD5//n/AAABAAMAAAD5//j/AAABAAMAAAA=")
+tile_set = SubResource("TileSet_kwveg")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="Examples"]
+position = Vector2(-519, -140)
+mass = 7.786
+physics_material_override = SubResource("PhysicsMaterial_3lvbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examples/RigidBody2D3"]
+shape = SubResource("CircleShape2D_vas8n")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Examples/RigidBody2D3"]
+mesh = SubResource("SphereMesh_6kpsy")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Examples"]
+position = Vector2(-88, -140)
+mass = 7.786
+physics_material_override = SubResource("PhysicsMaterial_3lvbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examples/RigidBody2D"]
+shape = SubResource("CircleShape2D_vas8n")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Examples/RigidBody2D"]
+mesh = SubResource("SphereMesh_6kpsy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Examples"]
+position = Vector2(-400, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Examples/StaticBody2D"]
+polygon = PackedVector2Array(0, 1, 0, 1, 72, 1, 194, -56, 196, 91, -135, 89, -134, -117, -36, 37)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Examples/StaticBody2D"]
+mesh = SubResource("ArrayMesh_4inev")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvtqiguvdnmd8"]
+
+[sub_resource type="Gradient" id="Gradient_tetkr"]
+offsets = PackedFloat32Array(0, 0.6, 0.772727, 0.881818)
+colors = PackedColorArray(1, 0, 0, 1, 0.819608, 0.811765, 0.223529, 1, 0.185073, 0.0982922, 0.0504744, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ehqd"]
+gradient = SubResource("Gradient_tetkr")
+
+[sub_resource type="Curve" id="Curve_m07cm"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_gi0sb"]
+curve_x = SubResource("Curve_m07cm")
+
+[sub_resource type="Curve" id="Curve_8vsmd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.514706, 0.966292), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e5hyf"]
+curve = SubResource("Curve_8vsmd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a4pd1"]
+particle_flag_disable_z = true
+angular_velocity_min = -312.15
+angular_velocity_max = 290.0
+directional_velocity_min = -20.0
+directional_velocity_max = 20.0
+directional_velocity_curve = SubResource("CurveXYZTexture_gi0sb")
+gravity = Vector3(0, -10, 0)
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_e5hyf")
+color_ramp = SubResource("GradientTexture1D_5ehqd")
+
+[node name="Particles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 21
+lifetime = 4.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_a4pd1")
