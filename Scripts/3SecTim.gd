@@ -2,6 +2,7 @@ extends Button
 
 @export var Three_second_timer:Timer
 @export var TextToShow:RichTextLabel
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(Three_second_timer)

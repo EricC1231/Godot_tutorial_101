@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4n4xdunb56ca"]
+
+[ext_resource type="Script" uid="uid://bmiqg0cptd615" path="res://Scripts/persistence.gd" id="1_i1osl"]
+
+[node name="Persistence" type="Control" node_paths=PackedStringArray("DataInput", "DataDisplay")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1osl")
+DataInput = NodePath("LineEdit")
+DataDisplay = NodePath("Saved Data Display")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 90.0
+offset_right = 305.0
+offset_bottom = 150.0
+placeholder_text = "Insert text to save"
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 11.0
+offset_right = 276.0
+offset_bottom = 78.0
+text = "Save Text"
+
+[node name="LoadButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 5.0
+offset_right = 721.0
+offset_bottom = 81.0
+text = "Load Text"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 106.0
+offset_right = 572.0
+offset_bottom = 140.0
+text = "Your saved text is:"
+
+[node name="Saved Data Display" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 105.0
+offset_right = 718.0
+offset_bottom = 139.0
+
+[connection signal="pressed" from="SaveButton" to="." method="SaveTextData"]
+[connection signal="pressed" from="LoadButton" to="." method="LoadAndDisplayData"]
