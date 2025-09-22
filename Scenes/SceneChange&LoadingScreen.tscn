@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://xf4idla1q3ab"]
+
+[ext_resource type="Script" uid="uid://dmmae4exx6lv" path="res://Scenes/SceneTransition.gd" id="1_qhe1t"]
+[ext_resource type="PackedScene" uid="uid://cv1s2rnn7wyhg" path="res://Textures/Dog/ugdc_dog.tscn" id="2_631j7"]
+
+[node name="SceneChange&loadingScreen" type="Control" node_paths=PackedStringArray("dog", "LoadingScreen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qhe1t")
+dog = NodePath("UGDC_Dog")
+LoadingScreen = NodePath("LoadingScreen")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -43.0
+offset_right = 129.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Load Scene"
+
+[node name="LoadingScreen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoadingScreen"]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 292.0
+offset_right = 776.0
+offset_bottom = 377.0
+text = "Loading ..."
+
+[node name="UGDC_Dog" parent="." instance=ExtResource("2_631j7")]
+position = Vector2(579, 216)
+
+[connection signal="pressed" from="Button" to="." method="LoadScene"]

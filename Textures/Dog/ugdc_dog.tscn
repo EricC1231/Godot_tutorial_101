@@ -1,0 +1,211 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv1s2rnn7wyhg"]
+
+[ext_resource type="Script" uid="uid://ds0gitpagc5t3" path="res://Textures/Dog/ugdc_dog_anim_controller.gd" id="1_aqhqb"]
+[ext_resource type="Texture2D" uid="uid://lh68jd3qf0q6" path="res://Textures/Dog/Shaded/Dog_shaded(FrontBehind) _0001.png" id="2_aqhqb"]
+[ext_resource type="Texture2D" uid="uid://dmxlp5hu4gdu8" path="res://Textures/Dog/Shaded/Dog_shaded(RearBehind) _0001.png" id="3_h56ir"]
+[ext_resource type="Texture2D" uid="uid://u8fvyrdyir1g" path="res://Textures/Dog/Shaded/Dog_shaded(Body) _0001.png" id="4_c8p84"]
+
+[sub_resource type="Animation" id="Animation_r2nxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Legs_behind/FrontBehindPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Legs_behind/BackBehindPivot2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Legs_Front/FrontFrontPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Legs_Front/BackFrontPivot2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_c8p84"]
+resource_name = "Standing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Legs_behind/FrontBehindPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Legs_behind/BackBehindPivot2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Legs_Front/FrontFrontPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Legs_Front/BackFrontPivot2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yhrva"]
+resource_name = "Walking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Legs_behind/FrontBehindPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, -2, 2, 1),
+"update": 0,
+"values": [0.0, 1.14319, -1.14319, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Legs_behind/BackBehindPivot2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, -2, 2, 1),
+"update": 0,
+"values": [0.0, -0.816814, 0.816814, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Legs_Front/FrontFrontPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, -2, 2, 2),
+"update": 0,
+"values": [0.0, -1.03847, 1.03847, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Legs_Front/BackFrontPivot2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, -2, 2, 1),
+"update": 0,
+"values": [0.0, 0.97913, -0.97913, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpp8j"]
+_data = {
+&"RESET": SubResource("Animation_r2nxw"),
+&"Standing": SubResource("Animation_c8p84"),
+&"Walking": SubResource("Animation_yhrva")
+}
+
+[node name="UGDC_Dog" type="Node2D"]
+script = ExtResource("1_aqhqb")
+
+[node name="Legs_behind" type="Node2D" parent="."]
+
+[node name="FrontBehindPivot" type="Node2D" parent="Legs_behind"]
+position = Vector2(-34, 38)
+
+[node name="Sprite2D" type="Sprite2D" parent="Legs_behind/FrontBehindPivot"]
+position = Vector2(37, -38)
+texture = ExtResource("2_aqhqb")
+
+[node name="BackBehindPivot2" type="Node2D" parent="Legs_behind"]
+position = Vector2(29, 33)
+
+[node name="Sprite2D" type="Sprite2D" parent="Legs_behind/BackBehindPivot2"]
+position = Vector2(-27, -32)
+texture = ExtResource("3_h56ir")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("4_c8p84")
+
+[node name="Legs_Front" type="Node2D" parent="."]
+
+[node name="FrontFrontPivot" type="Node2D" parent="Legs_Front"]
+position = Vector2(-26, 38)
+
+[node name="Sprite2D" type="Sprite2D" parent="Legs_Front/FrontFrontPivot"]
+position = Vector2(37, -38)
+texture = ExtResource("2_aqhqb")
+
+[node name="BackFrontPivot2" type="Node2D" parent="Legs_Front"]
+position = Vector2(40, 33)
+
+[node name="Sprite2D" type="Sprite2D" parent="Legs_Front/BackFrontPivot2"]
+position = Vector2(-27, -32)
+texture = ExtResource("3_h56ir")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kpp8j")
+}
